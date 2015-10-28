@@ -21,6 +21,8 @@ page.at('#mw-content-text').search('dt').each do |dt|
   }
 
   p character
+  ScraperWiki.save_sqlite([:character], character)
+
 end
 
 #
