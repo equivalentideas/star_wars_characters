@@ -12,16 +12,16 @@ page = agent.get(url)
 #
 # # Find somehing on the page using css selectors
 
-page.at('dl').search('dt')[0]
+page.at('#mw-content-text').search('dt')[0]
 page.at('dl').search('dd')[0]
 
-character = {
-  character: page.at('dl').search('dt')[1].text,
-  description: page.at('dl').search('dd')[1].text
-}
+page.at('#mw-content-text').search('dt').each do |dt|
+  character = {
+    character: dt.text,
+  }
 
-p character
-
+  p character
+end
 
 #
 # # Write out to the sqlite database using scraperwiki library
